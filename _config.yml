@@ -8,12 +8,11 @@ subtitle: 前端码农
 description: 西电12级，web前端开发一枚。毕业后在上海华为工作半年，现就职于北京网易
 author: Teal
 email: tywei90@163.com
-keywords: "前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验"
-
+keywords: 前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-# url: https://tywei90.github.io
+url: http://weitianyao.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
