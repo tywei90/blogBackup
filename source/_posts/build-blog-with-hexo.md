@@ -7,13 +7,14 @@ tags:
 ---
 
 &emsp;&emsp;本来不准备写的，因为网上一搜一大堆讲如何用hexo搭建博客的文章，但是，一来这个markdown语法以前没写过，想用来练练手。二来，网上文章有的写的比较早，一些配置和api可能已经变了。好的，啰嗦玩了，下面开始正文。
-<!-- more -->
+
 &emsp;&emsp;首先声明，本教程是针对mac的，不保证windows执行没有问题
 
-## 配置环境
+## 1、配置环境
 > 安装node
 
 &emsp;&emsp;nodejs是服务器语言，借助google的chrome浏览器V8引擎，可以让前端js脚本运行在服务器端，前后端语言统一，不要太美~在这里，他主要是用来生成静态页面的。[Node.js官网](https://nodejs.org/en/)下载相应平台的最新版本，一路安装即可。
+<!-- more -->
 > 安装git
 
 &emsp;&emsp;把本地的hexo内容提交到github上去，安装Xcode就自带有Git。可以用命令行，当然你也可以source tree可视化工具来管理。
@@ -21,7 +22,7 @@ tags:
 
 &emsp;&emsp;hexo博客是一个静态博客，内容是托管在github上的。去官网注册申请，然后配置下SSH Keys，这样就不用每次提交都输入用户名和密码了。[mac ssh key 获取](http://blog.csdn.net/yhqbsand/article/details/22763411)
 
-## hexo搭建博客
+## 2、hexo搭建博客
 > 全局安装hexo
 
 &emsp;&emsp;确保上述环境安装好之后，全局安装hexo:
@@ -53,7 +54,7 @@ hexo s (或hexo server)
 &emsp;&emsp;在bash命令行，按下command键单击 http://localhost:4000/ ，即可用浏览器打开此页面。可以做本地预览
 &emsp;&emsp;恭喜！你已经看到自己的博客了。但是域名和服务器都是自己电脑，我们需要关联github，继续往下看
 
-## 部署github
+## 3、部署github
 > 新建仓库
 
 &emsp;&emsp;在github上创建新的仓库，仓库名必须为[your_user_name.github.io]，将自己的github用户名替换掉your_user_name。
@@ -95,7 +96,7 @@ dig tywei90.github.io
 
 &emsp;&emsp;总结下：也就是说，我们的博客地址都会被映射到ip为151.101.100.133的主机上，然后github会根据我们的用户名查找相应的静态文件，然后返回。
 
-## 相关知识
+## 4、相关知识
 > hexo部署三步走
 
 每次部署博客都要执行下面三步
