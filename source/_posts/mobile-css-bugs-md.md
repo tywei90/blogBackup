@@ -7,6 +7,8 @@ tags:
     - 兼容性
     - bug
     - 奇淫技巧
+reward: true
+toc: true
 ---
 
 &emsp;&emsp;这里总结下我平时自己遇到和在网上看到的一些移动端bug，希望对大家有用。
