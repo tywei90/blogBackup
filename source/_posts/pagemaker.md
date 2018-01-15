@@ -16,7 +16,7 @@ toc: true
 pagemaker是一个前端页面制作工具，方便产品，运营和视觉的同学迅速开发简单的前端页面，从而可以解放前端同学的工作量。此项目创意来自网易乐得内部项目[nfop](http://nfop.ms.netease.com/)中的pagemaker项目。原来项目的前端是采用jquery和模板ejs做的，每次组件的更新都会重绘整个dom，性能不是很好。因为当时react特别火，加上项目本身的适合，最后决定采用react来试试水。因为原来整个项目是包含很多子项目一起，所以后台的实现也没有参考，完全重写。  
 
 本项目只是原来项目的简单实现，去除了用的不多和复杂的组件。但麻雀虽小五脏俱全，本项目采用了react的一整套技术栈，适合那些对react有过前期学习，想通过demo来加深理解并动手实践的同学。项目的[线上地址](https://pagemaker.wty90.com/)、[github地址](https://github.com/tywei90/pagemaker_production)，欢迎大家star。建议学习本demo的之前，先学习/复习下相关的知识点：[React 技术栈系列教程](http://www.ruanyifeng.com/blog/2016/09/react-technology-stack.html)、[Immutable 详解及 React 中实践](https://zhuanlan.zhihu.com/p/20295971?columnSlug=purerender)。
-
+<!-- more -->
 ## 一、功能特点
 0. 组件丰富。有标题、图片、按钮、正文、音频、视频、统计、jscss输入。
 0. 实时预览。每次修改都可以立马看到最新的预览。
