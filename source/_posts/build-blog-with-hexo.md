@@ -90,7 +90,7 @@ hexo d (或hexo deploy)
 dig tywei90.github.io
 ```
 我们会看到：
-![dig结果](/assets/blogImg/dig.jpg "dig结果")
+![dig结果](/assets/img/dig.jpg "dig结果")
 
 dig命令是查网址的dns解析的，我们发现博客地址被CNAME到github.map.fastly.net.上，他的服务器ip是151.101.100.133。什么意思呢，我们先来解释下CNAME。
 

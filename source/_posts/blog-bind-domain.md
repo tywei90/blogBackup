@@ -21,7 +21,7 @@ toc: true
 
 DNS域名解析一般都是用的DNSPod，大家注册以后去域名解析一栏添加自己刚申请的域名。然后设置如下图所示:
 
-![DNS域名解析设置](/assets/blogImg/dnspod.png "DNS域名解析设置")
+![DNS域名解析设置](/assets/img/dnspod.png "DNS域名解析设置")
 
 大家只需要添加红框部分内容即可，其他设置下一篇文章会说。这里我们添加了主机记录分别为www和@两种类型，分别对应着您的网址带www和不带www的映射。防止有的浏览器默认添加www导致网页打不开。
 
@@ -29,14 +29,14 @@ DNS域名解析一般都是用的DNSPod，大家注册以后去域名解析一�
 
 还有个非常重要没说，就是去你域名注册的网站去绑定DNSPod的dns服务器设置。如果是namecheap网站，替换掉网址 https://ap.www.namecheap.com/domains/domaincontrolpanel/your_domain_name/domain 中的your_domain_name，添加两条NAMESERVERS记录，设置如下图所示。
 
-![绑定DNSPod服务器设置](/assets/blogImg/dns.png "绑定DNSPod服务器设置")
+![绑定DNSPod服务器设置](/assets/img/dns.png "绑定DNSPod服务器设置")
 
 这样，你的网站才能被DNSPod做dns解析。一般需要一定时间才能生效，我当时是半个小时左右吧。
 
 ## 3、添加CNAME文件
 在你的博客source文件夹里创建CNAME文件，不带任何后缀，里面添加你的域名信息，如：weitianyao.com（注意前面不添加`http://`），如下图：
 
-![添加CNAME文件](/assets/blogImg/CNAME.png "添加CNAME文件")
+![添加CNAME文件](/assets/img/CNAME.png "添加CNAME文件")
 
 然后就`hexo d`试试吧。
 

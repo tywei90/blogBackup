@@ -52,9 +52,9 @@ pagemaker是一个前端页面制作工具，方便产品，运营和视觉的�
 
 ## 三、脚手架工具
 因为项目用的技术比较多，采用脚手架工具可以省去我们搭建项目的时间。经过搜索，我发现有三个用的比较多：
-1. [create-react-app](https://github.com/facebookincubator/create-react-app)   ![create-react-app star数](/assets/blogImg/git1.png "create-react-app star数")
-2. [react-starter-kit](https://github.com/kriasoft/react-starter-kit#readme)   ![react-starter-kit star数](/assets/blogImg/git2.png "react-starter-kit star数")
-3. [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate)   ![react-boilerplate star数](/assets/blogImg/git3.png "react-boilerplate star数")  
+1. [create-react-app](https://github.com/facebookincubator/create-react-app)   ![create-react-app star数](/assets/img/git1.png "create-react-app star数")
+2. [react-starter-kit](https://github.com/kriasoft/react-starter-kit#readme)   ![react-starter-kit star数](/assets/img/git2.png "react-starter-kit star数")
+3. [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate)   ![react-boilerplate star数](/assets/img/git3.png "react-boilerplate star数")  
 
 github上的star数都很高，第一个是Facebook官方出的react demo。但是看下来，三个项目都比较庞大，引入了很多不需要的功能包。后来搜索了下，发现一个好用的脚手架工具：[yeoman](http://yeoman.io/learning/)，大家可以选择相应的generator。我选择的是[react-webpack](https://github.com/react-webpack-generators/generator-react-webpack#readme)。项目比较清爽，需要大家自己搭建redux和immutable环境，以及后台express。其实也好，锻炼下自己构建项目的能力。
 
@@ -62,7 +62,7 @@ github上的star数都很高，第一个是Facebook官方出的react demo。但�
 ## 四、工程目录分析
 工程目录如下：  
 
-![工程目录](/assets/blogImg/gc.jpg "工程目录")  
+![工程目录](/assets/img/gc.jpg "工程目录")  
 
 * data是用来存放数据文件的。因为数据比较简单，本项目没有采用数据库，直接用文件方式来存储。
 * files是存放上传文件和下载的中间文件。
@@ -160,11 +160,11 @@ shouldComponentUpdate: (nextProps = {}, nextState = {}) => {
 
 使用 Immutable 后，如下图，当红色节点的 state 变化后，不会再渲染树中的所有节点，而是只渲染图中绿色的部分：
 
-![immutable演示](/assets/blogImg/immutable.jpg "immutable演示")  
+![immutable演示](/assets/img/immutable.jpg "immutable演示")  
 
 本项目中，我们采用支持 class 语法的 [pure-render-decorator](http://link.zhihu.com/?target=https%3A//github.com/felixgirault/pure-render-decorator) 来实现。我们希望达到的效果是：当我们编辑组件的属性时，其他组件并不被渲染，而且preview里，只有被修改的preview组件update，而其他preview组件不渲染。为了方便观察组件是否被渲染，我们人为的给组件增加了data-id的属性，其值为`Math.random()`的随机值。效果如下图所示：  
 
-![immutable实际效果图](/assets/blogImg/immutable.gif "immutable实际效果图")  
+![immutable实际效果图](/assets/img/immutable.gif "immutable实际效果图")  
 
 
 ### 4. Reducer
@@ -367,7 +367,7 @@ reducer会根据action的type不同，去执行相应的操作。但是一定要
 
 ### 5. 工作流程
 如下图所示：  
-![redux流程图](/assets/blogImg/redux_flow.jpg "redux流程图")  
+![redux流程图](/assets/img/redux_flow.jpg "redux流程图")  
 
 用户能接触到的只有view层，就是组件里的各种输入框，单选多选等。用户与之发生交互，会发出action。React-Redux提供connect方法，用于从UI组件生成容器组件。connect方法接受两个参数：mapStateToProps和mapDispatchToProps，按照React-Redux的API，我们需要将Store.dispatch(action)写在mapDispatchToProps函数里边，但是为了书写方便和直观看出这个action是哪里发出的，我们没有遵循这个API，而是直接写在在代码中。
 

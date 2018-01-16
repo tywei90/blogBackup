@@ -16,7 +16,7 @@ curl -A "Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/
 ```
 我们会看到结果如下图：
 
-![百度爬虫爬github](/assets/blogImg/curl_baidu.png "百度爬虫爬github")
+![百度爬虫爬github](/assets/img/curl_baidu.png "百度爬虫爬github")
 <!-- more -->
 github把百度爬虫屏蔽了，原因就是百度爬虫爬得太厉害，已经对很多Github用户造成了可用性的问题了。当然，大家也可以尝试下百度爬虫能不能爬到自己的网站内容，我想结果是一样的。我们可以再试试谷歌爬虫，输入以下命令：
 ``` bash
