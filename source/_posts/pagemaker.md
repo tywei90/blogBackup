@@ -10,12 +10,13 @@ tags:
 reward: true
 toc: true
 ---
-> *版权声明：本文为博主原创文章，未经博主允许不得转载！*
 
-## 前言
 pagemaker是一个前端页面制作工具，方便产品，运营和视觉的同学迅速开发简单的前端页面，从而可以解放前端同学的工作量。此项目创意来自网易乐得内部项目[nfop](http://nfop.ms.netease.com/)中的pagemaker项目。原来项目的前端是采用jquery和模板ejs做的，每次组件的更新都会重绘整个dom，性能不是很好。因为当时react特别火，加上项目本身的适合，最后决定采用react来试试水。因为原来整个项目是包含很多子项目一起，所以后台的实现也没有参考，完全重写。  
 
-本项目只是原来项目的简单实现，去除了用的不多和复杂的组件。但麻雀虽小五脏俱全，本项目采用了react的一整套技术栈，适合那些对react有过前期学习，想通过demo来加深理解并动手实践的同学。项目的[线上地址](https://pagemaker.wty90.com/)、[github地址](https://github.com/tywei90/pagemaker_production)，欢迎大家star。建议学习本demo的之前，先学习/复习下相关的知识点：[React 技术栈系列教程](http://www.ruanyifeng.com/blog/2016/09/react-technology-stack.html)、[Immutable 详解及 React 中实践](https://zhuanlan.zhihu.com/p/20295971?columnSlug=purerender)。
+本项目只是原来项目的简单实现，去除了用的不多和复杂的组件。但麻雀虽小五脏俱全，本项目采用了react的一整套技术栈，适合那些对react有过前期学习，想通过demo来加深理解并动手实践的同学。建议学习本demo的之前，先学习/复习下相关的知识点：[React 技术栈系列教程](http://www.ruanyifeng.com/blog/2016/09/react-technology-stack.html)、[Immutable 详解及 React 中实践](https://zhuanlan.zhihu.com/p/20295971?columnSlug=purerender)。
+
+欢迎大家star学习交流：[线上地址](https://pagemaker.wty90.com/)&emsp;[github地址](https://github.com/tywei90/pagemaker_production)
+
 <!-- more -->
 ## 一、功能特点
 0. 组件丰富。有标题、图片、按钮、正文、音频、视频、统计、jscss输入。
@@ -58,23 +59,7 @@ pagemaker是一个前端页面制作工具，方便产品，运营和视觉的�
 
 github上的star数都很高，第一个是Facebook官方出的react demo。但是看下来，三个项目都比较庞大，引入了很多不需要的功能包。后来搜索了下，发现一个好用的脚手架工具：[yeoman](http://yeoman.io/learning/)，大家可以选择相应的generator。我选择的是[react-webpack](https://github.com/react-webpack-generators/generator-react-webpack#readme)。项目比较清爽，需要大家自己搭建redux和immutable环境，以及后台express。其实也好，锻炼下自己构建项目的能力。
 
-
-## 四、工程目录分析
-工程目录如下：  
-
-![工程目录](/assets/img/gc.jpg "工程目录")  
-
-* data是用来存放数据文件的。因为数据比较简单，本项目没有采用数据库，直接用文件方式来存储。
-* files是存放上传文件和下载的中间文件。
-* public是最后打包生成文件的目录
-* release目录是用来存放发布的静态页面目录
-* server是服务的代码
-* src是整个前端工程目录。action和reducer存放在各自文件夹内，index.js是入口文件。fonts文件夹存放字体文件的，采用[阿里字体库](iconfont.cn)。
-* views存放前端pug模板文件的
-* .babelrc文件是用来配置比如支持es6，es7等最新特性的，react, antd按需加载等。
-
-
-## 五、核心代码分析
+## 四、核心代码分析
 ### 1. Store
 Store 就是保存数据的地方，你可以把它看成一个容器。整个应用只能有一个 Store。
 ```js
@@ -409,7 +394,7 @@ ReactDom.render(
 我们的react-router采用的是browserHistory，使用的是HTML5的History API，路由切换交给后台。
 
 
-## 六、兼容性和打包优化
+## 五、兼容性和打包优化
 ### 1. 兼容性 
 为了让页面更好的兼容IE9+和android浏览器，因为项目使用了babel，所以采用[babel-polyfill](https://babeljs.io/docs/usage/polyfill/)和[babel-plugin-transform-runtime](https://babeljs.io/docs/plugins/transform-runtime/)插件。
 
