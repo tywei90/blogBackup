@@ -14,39 +14,16 @@ toc: true
 
 没有后台，纯前端展示，功能还比较多，调用系统的声音、震动和手机设备信息等。有二维码扫描功能，还做了类似qq消息可拖拽效果，上拉下拉刷新，轮播图组件。
 
+当时做的ppt下载: [2016.2.3技术分享ionic实战.ppt](/assets/ppt/ionic_app.ppt)
+
+[安卓apk下载](/assets/apk/ionic_app.apk)  
+
+![安卓apk下载二维码](/assets/img/apk.png "安卓apk下载二维码")
+
 欢迎大家star学习交流：[线上地址](https://ionic.wty90.com/)&emsp;[github地址](https://github.com/tywei90/ionic_app_production)
 
 <!-- more -->
-
-## 一、工程目录分析
-工程目录如下：  
-
-![项目的工程目录](/assets/img/folders.png "项目的工程目录")
-
-platforms是build之后生成的android和ios模拟器文件夹。
-
-resources是app在手机上的图标和开机画面等适配图。
-
-www是前端的工程目录，index.html是入口文件
-
-**js文件夹**
-
-* app.js是app的系统配置和负责tab路由切换；
-
-* controllers.js是主要的逻辑模块
-
-* services.js负责模块间通信的
-
-templates文件夹放置了所有tab的模板，用了很多ionic提供的组件，开发很方便
-
-## 二、文件下载   
-
-当时做的ppt下载: [2016.2.3技术分享ionic实战.ppt](/assets/ppt/ionic_app.ppt)
-
-[android下载](/assets/apk/ionic_app.apk)  
-![apk二维码](/assets/img/apk.png "apk二维码")
-
-## 三、一些基本概念
+## 一、基本概念
 
 ### 1. Angularjs简介
 Angularjs是一款优秀的前端 JS 框架，已用于 Google 的多款产品当中 如 Gmail、Maps、Calender 等。AngularJS有着诸多特性，最为核心的是：MVVM、模块化、自动化双向数据绑定、语义标签、依赖注入，等等。
@@ -58,7 +35,7 @@ Ionic是一个强大的 HTML5 应用程序开发框架，具有速度快，界�
 Phonegap是一个用基于 HTML， CSS 和 JavaScript 的，创建移动跨平台移动应用程序的
 快速开发平台。它使开发者能够手机的核心功能——包括地理定位，加速器，联系人，声音和振动等，此外PhoneGap 拥有丰富的插件，可以调用。
 
-## 四、项目各tab主要功能介绍
+## 二、项目各tab主要功能介绍
 
 ### 1. 初始化配置
 * 手机上app显示的图标、名称、开机画面
@@ -103,12 +80,12 @@ Phonegap是一个用基于 HTML， CSS 和 JavaScript 的，创建移动跨平�
 * ionic动态组件$ionicPopup
 * 根据被选择数显示相应弹窗内容
 
-## 五、演示如下：
+## 三、演示如下：
 
 ![ionic实战动态图演示](/assets/img/ionic_app.gif)  
 
 
-## 六、总 结
+## 四、总 结
 优点： 通过使用 web 技术开发 App，采用 Cordova/PhoneGap之类进行打包封装。优点是采用标准的web技术开发，避免了不同平台原生开发体系的学习，学习成本低， 上手快、 效率高，一次开发微信 wap app 全部搞定；
 
 缺点：app 在 android 平台性能上有一些损失， 但是相信硬件的发展会接近原生。
