@@ -63,6 +63,10 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
+#RSS订阅
+plugin:
+- hexo-generator-feed
+
 theme: yilia
 
 # Deployment
@@ -76,6 +80,11 @@ deploy:
   host: 47.95.225.12
   user: root
   root: /home/myBlog_production
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
 
 jsonContent:
   meta: false
