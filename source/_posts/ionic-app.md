@@ -3,7 +3,6 @@ title: 基于ionic的混合APP实战
 date: 2018-01-16 11:36:54
 tags:
     - ionic
-    - angular
     - phonegap
     - 混合APP
 reward: true

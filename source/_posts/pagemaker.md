@@ -3,10 +3,7 @@ title: 前端页面制作工具
 date: 2018-01-11 20:50:29
 tags:    
     - 页面制作
-    - pagemaker
     - react
-    - redux
-    - immutable
 reward: true
 toc: true
 ---

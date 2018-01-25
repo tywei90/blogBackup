@@ -3,8 +3,7 @@ title: 移动端布局方案探究
 date: 2017-07-17 23:04:58
 tags:
 	- 移动端布局
-	- dpr
-	- viewpoint
+	- css
 reward: true
 toc: true
 ---

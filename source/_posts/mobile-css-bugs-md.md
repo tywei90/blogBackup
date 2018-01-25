@@ -5,8 +5,6 @@ tags:
     - 移动端
     - css
     - 兼容性
-    - bug
-    - 奇淫技巧
 reward: true
 toc: true
 ---
