@@ -13,9 +13,7 @@ toc: true
 
 没有后台，纯前端展示，功能还比较多，调用系统的声音、震动和手机设备信息等。有二维码扫描功能，还做了类似qq消息可拖拽效果，上拉下拉刷新，轮播图组件。
 
-当时做的ppt下载: [2016.2.3技术分享ionic实战.ppt](/assets/ppt/ionic_app.ppt)
-
-[安卓apk下载](/assets/apk/ionic_app.apk)  
+[安卓apk下载](https://github.com/tywei90/ionic_app_production/releases/download/v1.0/ionic_app.apk)  
 
 ![安卓apk下载二维码](/assets/img/apk.png "安卓apk下载二维码")
 
