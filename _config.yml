@@ -78,6 +78,7 @@ deploy:
   
 - type: rsync
   host: 47.95.225.12
+  port: 17215
   user: root
   root: /home/myBlog_production
 
