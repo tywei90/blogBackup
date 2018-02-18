@@ -1,5 +1,5 @@
 ---
-title: 数组多重筛选条件排序方法，外加一些简单常用的数组方法
+title: 数组多重筛选条件排序方法
 date: 2016-11-28 00:07:48
 tags:
     - 数组
@@ -7,6 +7,10 @@ tags:
 reward: true
 toc: true
 ---
+
+** Update **
+
+此项目已经抽离出来，做成两个npm包：[arr-sort](https://github.com/tywei90/arr-sort), [arr-del](https://github.com/tywei90/arr-del)。功能增强，支持nested对象属性并支持传入比较函数功能。
 
 ## 一、问题背景
 前端时间做项目遇到个数组多重筛选条件排序的问题，做的是一个展示用户拥有的红包和加息券页面，但是排序类似于下面这样：

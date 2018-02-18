@@ -1,5 +1,5 @@
 ---
-title: NodeJS爬虫—>立马理财
+title: NodeJS爬虫——立马理财
 date: 2018-01-17 10:56:53
 tags:
     - 立马理财
@@ -42,15 +42,14 @@ Cheerio大家可以理解成一个 Node.js 版的 jquery，用来从网页中以
 ### 3. [Async](https://github.com/caolan/async)
 Async是一个流程控制工具包，提供了直接而强大的异步功能mapLimit(arr, limit, iterator, callback)，我们主要用到这个方法，大家可以去看看官网的API。
 
-### 4. [SortArr](https://github.com/tywei90/selfwork/tree/master/sortArr)
-SortArr是我自己写的一个数组常用方法的工具。有如下方法：
-* delArrByIndex 删除数组指定项(index Array)
-* maxObjArr 选出对象数组某个属性值最大的对象组成的数组
-* minObjArr 选出对象数组某个属性值最小的对象组成的数组
-* multiSortArr 多重条件数组筛选方法
+### 4. [arr-del](https://github.com/tywei90/arr-del)
+arr-del是我自己写的一个删除数组元素方法的工具。可以通过传入待删除数组元素index组成的数组进行一次性删除。
+
+### 5. [arr-sort](https://github.com/tywei90/arr-sort)
+arr-sort是我自己写的一个数组排序方法的工具。可以根据一个或者多个属性进行排序，支持嵌套的属性。而且可以再每个条件中指定排序的方向，并支持传入比较函数。
 
 ## 三、页面结构分析
-先屡一下我们爬取的思路。立马理财线上的产品主要是定期和立马金库(最新上线的光大银行理财产品因为手续比较麻烦，而且起投金额高，基本没人买，这里不统计)。定期我们可以爬取[理财页](https://www.lmlc.com/web/product/index.html)的ajax接口：[`https://www.lmlc.com/web/product/product_list?pageSize=10&pageNo=1&type=0`](https://www.lmlc.com/web/product/product_list?pageSize=10&pageNo=1&type=0)。数据如下图所示：
+先屡一下我们爬取的思路。立马理财线上的产品主要是定期和立马金库(最新上线的光大银行理财产品因为手续比较麻烦，而且起投金额高，基本没人买，这里不统计)。定期我们可以爬取[理财页](https://www.lmlc.com/web/product/index.html)的ajax接口：[`https://www.lmlc.com/web/product/product_list?pageSize=10&pageNo=1&type=0`](https://www.lmlc.com/web/product/product_list?pageSize=10&pageNo=1&type=0)。（update: 定期近期没货，可能看不到数据）数据如下图所示：
 
 ![理财页ajax接口数据](/assets/img/product.png "理财页ajax接口数据")
 
