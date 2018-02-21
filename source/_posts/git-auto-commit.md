@@ -1,5 +1,5 @@
 ---
-title: github自动提交——强迫症救星！
+title: 自动刷github提交记录
 date: 2018-02-18 23:05:49
 tags:
     - ssh
