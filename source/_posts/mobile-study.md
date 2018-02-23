@@ -171,16 +171,3 @@ $(document).ready(function(){
 2. [【原创】移动端高清、多屏适配方案](http://www.html-js.com/article/Mobile-terminal-H5-mobile-terminal-HD-multi-screen-adaptation-scheme%203041)
 3. [wap手机端页面根据dpr和宽度计算出font-size对应数值](http://my.oschina.net/kenblog/blog/373341?fromerr=OQeOo5fR)
 4. [less语法](http://www.1024i.com/demo/less/document.html)
-
-
-
-
-
-
-
-
-
-
-
-
-

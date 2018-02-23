@@ -29,11 +29,3 @@ curl -A "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html
 这样设置好以后，大家可以用上面的命令看能不能爬到。而且，每次用hexo部署后，我们的博客代码会同时部署到github和coding上，非常方便。这里建议大家将自己的博客目录创建一个github仓库，备份一下里边的source文件夹和_config.yml等配置文件。这样一来我们就不必非得用自己的电脑才能写博客；二来可以做博客内容备份。
 
 至此，博客搭建系列完毕！
-
-
-
-
-
-
-
-

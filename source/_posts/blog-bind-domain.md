@@ -39,8 +39,3 @@ DNS域名解析一般都是用的DNSPod，大家注册以后去域名解析一�
 ![添加CNAME文件](/assets/img/CNAME.png "添加CNAME文件")
 
 然后就`hexo d`试试吧。
-
-
-
-
-

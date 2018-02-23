@@ -1,5 +1,5 @@
 ---
-title: 博客内容管理系统
+title: 一个基于Vue.js+Mongodb+Node.js的博客内容管理系统
 date: 2018-02-16 21:28:41
 tags:    
     - cms
@@ -12,21 +12,65 @@ toc: true
 欢迎大家star学习交流：[线上地址](https://cms.wty90.com/)&emsp;[github地址](https://github.com/tywei90/CMS-of-Blog_Production)
 
 <!-- more -->
-## 一、更新内容
-0. 数据库重新设计，改成以用户分组的subDocs数据库结构
-0. 应数据库改动，所有接口重新设计，并统一采用和[立马理财](https://www.lmlc.com/)一致的接口风格
-0. 删除原来游客模式，增加登录注册功能，支持弹窗登录。
-0. 增加首页，展示最新发布文章和注册用户
-0. 增加修改密码，登出，注销等功能。
-0. 优化pop弹窗组件，更加智能，更多配置项，接近网易$.dialog组件。并且一套代码仅修改了下css，实现相同接口下pc端弹窗和wap端toast功能。
-0. 增加移动端适配
-0. 优化原来代码，修复部分bug。
+## 一、功能特点
+1. 一个基本的博客内容管理器功能，如发布并管理文章等
+2. 每个用户可以通过注册拥有自己的博客
+3. 支持markdown语法编辑
+4. 支持代码高亮
+5. 可以管理博客页面的链接
+6. 博客页面对移动端适配优化
+7. 账户管理(修改密码)
+8. 页面足够大气、酷炫嘿
+
+## 二、用到的技术和实现思路：
+
+### 2.1 前端：Vue全家桶
+* Vue.js
+* Vue-Cli
+* Vue-Resource
+* Vue-Validator
+* Vue-Router
+* Vuex
+* Vue-loader
+
+### 2.2 后端
+* Node.js
+* mongoDB (mongoose)
+* Express
+
+### 2.3 工具和语言
+* Webpack
+* ES6
+* SASS
+* Jade
+
+### 2.4 整体思路：
+* Node服务端除了主页和首页外，不做模板渲染，渲染交给浏览器完成
+* Node服务端不做任何路由切换的内容，这部分交给Vue-Router完成
+* Node服务端只用来接收请求，查询数据库并用来返回值
+
+所以这样做前后端几乎完全解耦，只要约定好restful风格的数据接口，和数据存取格式就OK啦。
+
+后端我用了mongoDB做数据库，并在Express中通过mongoose操作mongoDB，省去了复杂的命令行，通过Javascript操作无疑方便了很多。
+
+
+## 三、更新内容
+
+在原来项目的基础上，做了如下更新：
+1. 数据库重新设计，改成以用户分组的subDocs数据库结构
+2. 应数据库改动，所有接口重新设计，并统一采用和网易[立马理财](https://www.lmlc.com/)一致的接口风格
+3. 删除原来游客模式，增加登录注册功能，支持弹窗登录。
+4. 增加首页，展示最新发布文章和注册用户
+5. 增加修改密码，登出，注销等功能。
+6. 优化pop弹窗组件，更加智能，更多配置项，接近网易$.dialog组件。并且一套代码仅修改了下css，实现相同接口下pc端弹窗和wap端toast功能。
+7. 增加移动端适配
+8. 优化原来代码，修复部分bug。
 
 更多的更新内容请移步项目[CMS-of-Blog_Production](https://github.com/tywei90/CMS-of-Blog_Production/commits/master)和[CMS-of-Blog](https://github.com/tywei90/CMS-of-Blog/commits/master)。
 
-## 二、核心代码分析
+## 四、核心代码分析
 原作者也写过分析的[文章](https://ycwalker.com/2016/09/03/blog-cms/)。这里，主要分析一下我更新的部分。
-### 1. 数据库
+### 4.1. 数据库
 对原数据库进行重新设计，改成以用户分组的subDocs数据库结构。这样以用户为一个整体的数据库结构更加清晰，同时也更方便操作和读取。代码如下：
 ```js
 var mongoose =  require('mongoose'),
@@ -173,7 +217,7 @@ router.post('/genEmailCode', function(req, res, next) {
 ```
 后台接受到发送邮箱验证码的请求后，会初始化一个tmp的用户。通过`new db.User()`会创建一个User的实例，然后执行`save()`操作会将这条数据写到数据库里。如果在半小时内没有注册成功，通过匹配邮箱，然后`db.User.remove()`将这条数据删除。更多具体用法请移步[官方文档](https://docs.mongodb.com/manual/tutorial/getting-started/)。
 
-### 2. 后台
+### 4.2. 后台
 将所有请求分为三种：
 * ajax异步请求，统一路径：`/web/`
 * 公共页面部分，如博客首页、登录、注册等，统一路径：`/`
@@ -255,8 +299,11 @@ module.exports = app;
 ```
 具体的ajax接口代码大家可以看server文件夹下的index.js文件。
 
-### 3. pop/toast组件
-#### 3.1 pop/toast组件配置参数说明
+### 4.3. pop/toast组件
+
+在原项目基础上，优化了pop弹窗组件，更加智能，更多配置项，接近网易$.dialog组件。使并且一套代码仅修改了下css，实现相同接口下pc端弹窗和wap端toast功能。因为有部分格式化参数代码在vuex的action里，有时间，可以将这个进一步整理成一个vue组件，方便大家使用。
+
+#### 4.3.1 pop/toast组件配置参数说明
 * `pop`: 弹窗的显示与否, 根据content参数，有内容则为true
 * `css`: 自定义弹窗的class, 默认为空
 * `showClose`: 为false则不显示关闭按钮, 默认显示
@@ -271,7 +318,10 @@ module.exports = app;
 * `destroy`: 弹窗消失之后的回调函数
 * `wapGoDialog`: 在移动端时，要不要走弹窗，默认false，走toast
 
-#### 3.2 pop/toast组件代码
+#### 4.3.2 pop/toast组件代码
+
+**模板**
+
 ```html
 <template>
     <div class="m-dialog" :class="getPopPara.css">
@@ -290,106 +340,105 @@ module.exports = app;
         </div>
     </div>
 </template>
+```
 
-<script>
-    import {pop}                from '../vuex/actions'
-    import {getPopPara}         from '../vuex/getters'
-    import $                    from '../js/jquery.min'
+**脚本**
 
-    export default{
-        computed:{
-            showDialog(){
-                return this.getPopPara.pop
-            }
+```js
+import {pop}                from '../vuex/actions'
+import {getPopPara}         from '../vuex/getters'
+import $                    from '../js/jquery.min'
+
+export default{
+    computed:{
+        showDialog(){
+            return this.getPopPara.pop
+        }
+    },
+    vuex: {
+        getters: {
+            getPopPara
         },
-        vuex: {
-            getters: {
-                getPopPara
-            },
-            actions: {
-                pop
+        actions: {
+            pop
+        }
+    },
+    methods: {
+        fn1(){
+            let fn = this.getPopPara.cb1
+            let closePop = false
+            //  如果cb1函数没有明确返回true，则默认按钮点击后关闭弹窗
+            if(typeof fn == 'function'){
+                closePop = fn()
             }
-        },
-        methods: {
-            fn1(){
-                let fn = this.getPopPara.cb1
-                let closePop = false
-                //  如果cb1函数没有明确返回true，则默认按钮点击后关闭弹窗
-                if(typeof fn == 'function'){
-                    closePop = fn()
-                }
-                // 初始值为false, 所以没传也默认关闭
-                if(!closePop){
-                    this.pop()
-                }
-                // !fn && this.pop()
-            },
-            fn2(){
-                let fn = this.getPopPara.cb2
-                let closePop = false
-                //  如果cb1函数没有明确返回true，则默认按钮点击后关闭弹窗
-                if(typeof fn == 'function'){
-                    closePop = fn()
-                }
-                // 初始值为false, 所以没传也默认关闭
-                if(!closePop){
-                    this.pop()
-                }
-                // !fn && this.pop()
-            },
-            handleClose(){
-                // this.pop()要放在最后，因为先执行所有参数就都变了
-                let fn = this.getPopPara.closeFn
-                typeof fn == 'function' && fn()
+            // 初始值为false, 所以没传也默认关闭
+            if(!closePop){
                 this.pop()
             }
+            // !fn && this.pop()
         },
-        watch:{
-            'showDialog': function(newVal, oldVal){
-                // 弹窗打开时
-                if(newVal){
-                    // 增加弹窗支持键盘操作
-                    $(document).bind('keydown', (event)=>{
-                        // 回车键执行fn1，会出现反复弹窗bug
-                        if(event.keyCode === 27){
-                            this.pop()
-                        }
-                    })
-                    var $dialog = $('.dialog-wrap');
-                    // 移动端改成类似toast，通过更改样式，既不需要增加toast组件，也不需要更改代码，统一pop方法
-                    if(screen.width < 700 && !this.getPopPara.wapGoDialog){
-                        $dialog.addClass('toast-wrap');
-                        setTimeout(()=>{
-                            this.pop();
-                            $dialog.removeClass('toast-wrap');
-                        }, 2000)
+        fn2(){
+            let fn = this.getPopPara.cb2
+            let closePop = false
+            //  如果cb1函数没有明确返回true，则默认按钮点击后关闭弹窗
+            if(typeof fn == 'function'){
+                closePop = fn()
+            }
+            // 初始值为false, 所以没传也默认关闭
+            if(!closePop){
+                this.pop()
+            }
+            // !fn && this.pop()
+        },
+        handleClose(){
+            // this.pop()要放在最后，因为先执行所有参数就都变了
+            let fn = this.getPopPara.closeFn
+            typeof fn == 'function' && fn()
+            this.pop()
+        }
+    },
+    watch:{
+        'showDialog': function(newVal, oldVal){
+            // 弹窗打开时
+            if(newVal){
+                // 增加弹窗支持键盘操作
+                $(document).bind('keydown', (event)=>{
+                    // 回车键执行fn1，会出现反复弹窗bug
+                    if(event.keyCode === 27){
+                        this.pop()
                     }
-                    //调整弹窗居中
-                    let width = $dialog.width();
-                    let height = $dialog.height();
-                    $dialog.css('marginTop', - height/2);
-                    $dialog.css('marginLeft', - width/2);
-                    // 弹窗建立的初始化函数
-                    let fn = this.getPopPara.init;
-                    typeof fn == 'function' && fn();
-                }else{
-                    // 弹窗关闭时
-                    // 注销弹窗打开时注册的事件
-                    $(document).unbind('keydown')
-                    // 弹窗消失回调
-                    let fn = this.getPopPara.destroy
-                    typeof fn == 'function' && fn()
+                })
+                var $dialog = $('.dialog-wrap');
+                // 移动端改成类似toast，通过更改样式，既不需要增加toast组件，也不需要更改代码，统一pop方法
+                if(screen.width < 700 && !this.getPopPara.wapGoDialog){
+                    $dialog.addClass('toast-wrap');
+                    setTimeout(()=>{
+                        this.pop();
+                        $dialog.removeClass('toast-wrap');
+                    }, 2000)
                 }
+                //调整弹窗居中
+                let width = $dialog.width();
+                let height = $dialog.height();
+                $dialog.css('marginTop', - height/2);
+                $dialog.css('marginLeft', - width/2);
+                // 弹窗建立的初始化函数
+                let fn = this.getPopPara.init;
+                typeof fn == 'function' && fn();
+            }else{
+                // 弹窗关闭时
+                // 注销弹窗打开时注册的事件
+                $(document).unbind('keydown')
+                // 弹窗消失回调
+                let fn = this.getPopPara.destroy
+                typeof fn == 'function' && fn()
             }
         }
     }
-</script>
-<style lang="sass">
-    @import "../style/components/Pop.scss";
-</style>
+}
 ```
 
-#### 3.3 pop/toast组件参数格式化代码
+#### 4.3.3 pop/toast组件参数格式化代码
 为了使用方便，我们在使用的时候进行了简写。为了让组件能识别，需要在vuex的action里对传入的参数格式化。
 ```js
 function pop({dispatch}, para) {
@@ -450,18 +499,3 @@ function pop({dispatch}, para) {
 
 ## 后记
 这里主要分析了下后台和数据库，而且比较简单，大家可以去看源码。总之，这是一个不错的前端入手后台和数据库的例子。功能比较丰富，而且可以学习下vue.js。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
